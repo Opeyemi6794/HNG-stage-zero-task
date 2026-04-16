@@ -1,0 +1,49 @@
+:root {
+    --low: #22c55e; --medium: #f59e0b; --high: #ef4444;
+    --bg: #f1f5f9; --card: #ffffff;
+}
+
+body { font-family: sans-serif; background: var(--bg); display: flex; justify-content: center; padding: 20px; }
+.wrapper { width: 100%; max-width: 500px; }
+
+.todo-card {
+    background: var(--card); border-radius: 12px; position: relative;
+    padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden; border-left: 8px solid #ddd;
+}
+
+/* Priority Accents */
+.todo-card.p-Low { border-left-color: var(--low); }
+.todo-card.p-Medium { border-left-color: var(--medium); }
+.todo-card.p-High { border-left-color: var(--high); }
+
+/* Status Styles */
+.todo-card.status-done { opacity: 0.7; background: #f8fafc; }
+.todo-card.status-done h2 { text-decoration: line-through; }
+.todo-card.status-progress { background: #eff6ff; }
+
+/* Overdue Style */
+.overdue-text { color: var(--high); font-weight: bold; }
+.hidden { display: none !important; }
+
+/* Collapsible Logic */
+.collapsed { 
+    max-height: 3em; overflow: hidden; position: relative; 
+}
+.btn-link { background: none; border: none; color: blue; cursor: pointer; padding: 0; font-size: 0.8rem; }
+
+/* Form Styles */
+.form-group { margin-bottom: 12px; display: flex; flex-direction: column; }
+.form-row { display: flex; gap: 10px; }
+input, textarea, select { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+
+.footer-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.actions, .form-actions { display: flex; gap: 10px; }
+.btn { padding: 8px 16px; border-radius: 6px; cursor: pointer; border: none; }
+.btn-save { background: var(--low); color: white; }
+.btn-cancel { background: #64748b; color: white; }
+
+@media (max-width: 480px) {
+    .form-row { flex-direction: column; }
+    .footer-top { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
